@@ -60,27 +60,27 @@ pdf(file=paste(opt$out,"SCO375.pdf", sep='.'))
 ggplot(mm375,aes(x=X,y=variable,fill=value)) +
    geom_tile() + 
    labs(x="gene occupancy", y="species") +
-   scale_fill_manual(values = c("0"="white", "1"="black")) +
+   scale_fill_manual(values = c("0"="white", "1"="black"), labels=c("Absent", "Present")) +
    theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 dev.off()
 pdf(file=paste(opt$out,"SCO50.pdf", sep='.'))
 ggplot(mm5,aes(x=X,y=variable,fill=value)) +
    geom_tile() + 
    labs(x="gene occupancy", y="species") +
-   scale_fill_manual(values = c("0"="white", "1"="black")) +
+   scale_fill_manual(values = c("0"="white", "1"="black"), labels=c("Absent", "Present")) +
    theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 dev.off()
 pdf(file=paste(opt$out,"SCO75.pdf", sep='.'))
 ggplot(mm75,aes(x=X,y=variable,fill=value)) +
    geom_tile() + 
    labs(x="gene occupancy", y="species") +
-   scale_fill_manual(values = c("0"="white", "1"="black")) +
+   scale_fill_manual(values = c("0"="white", "1"="black"), labels=c("Absent", "Present")) +
    theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 dev.off()
 pdf(file=paste(opt$out,"SCO.pdf", sep='.'))
 ggplot(mm,aes(x=X,y=variable,fill=value)) +
    geom_tile() + 
    labs(x="gene occupancy", y="species") +
-   scale_fill_manual(values = c("0"="white", "1"="black")) +
+   scale_fill_manual(values = c("0"="white", "1"="black"), labels=c("Absent", "Present")) +
    theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 dev.off()
