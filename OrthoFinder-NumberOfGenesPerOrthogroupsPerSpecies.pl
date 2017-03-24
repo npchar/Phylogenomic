@@ -4,7 +4,7 @@ use warnings;
 
 #Description :
 my $usage ;
-$usage= "$0 <OG Matrix from Orthofinder>\n\n" ;
+$usage= "$0 <OG Matrix from Orthofinder>   [DEPRECATED] \n\n" ;
 $usage.= "Description : This script is producing a report of the number of genes per orthogroup and per specie\n" ;
 $usage.= "Dependency : <OG Matrix from Orthofinder> is a matrix with Orthogroup as row (i) and species as column (j)\n" ;
 $usage.= "	       Mij is a list of genes separated by a comma (,) \n" ;

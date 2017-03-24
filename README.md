@@ -1,15 +1,27 @@
 # Phylogenomic
 ## A) OrthoFinder tools :
 ### i) OrthoFinder-NumberOfGenesPerOrthogroupsPerSpecies.pl
-This first perl script is working on OrthoFinder ortohogroup matrix "Orthogroups.csv" :
+This first R script is working on OrthoFinder ortohogroup matrix "Orthogroups.csv" :
 ##### Usage :
 ```
-./OrthoFinder-NumberOfGenesPerOrthogroupsPerSpecies.pl <OG Matrix from Orthofinder>
+./OrthoFinder-CountOrthogroupsPerSpecies.R 
+Usage: ./OrthoFinder-CountOrthogroupsPerSpecies.R [options]
 
+
+Options:
+        -f CHARACTER, --file=CHARACTER
+                dataset file name
+
+        -o CHARACTER, --out=CHARACTER
+                output prefix file name
+
+        -h, --help
+                Show this help message and exit
+
+```
 Description : This script is producing a report of the number of genes per orthogroup and per species
 Dependency : <OG Matrix from Orthofinder> is a matrix with Orthogroup as row (i) and species as column (j)
                Mij is a list of genes separated by a comma (,)
-```
 
 ### ii) OrthoFinder--SCOmatrixBuilder.R
 This script is filtering orthogroups observed one and only one times per species (Single Copy Orthologs).
