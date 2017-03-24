@@ -44,3 +44,19 @@ Options:
 Two types of files is produced : a list of orthogroups ids in "*.list" and a graphical representation of genes presence/absence by species.
 This two files is produced for SCO observed at least in 75% of species, 50% and 37.5%.
 
+### iii) Super alignment builder (concatenation with partition)
+This R script is concatenating multiple alignements, creating a partition file (ready to use by RAxML), reporting empty alignements and producing a visual report of the super-alignment.
+```
+Usage: ./ConcatAlignement.R [options]
+
+
+Options:
+        -f CHARACTER, --file=CHARACTER
+                SCOlist file name
+
+        -o CHARACTER, --out=CHARACTER
+                output alignement prefix
+
+        -h, --help
+                Show this help message and exit
+```
