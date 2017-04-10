@@ -8,7 +8,7 @@ library("ape")
 
 option_list = list(
   make_option(c("-f", "--file"), type="character", default=NULL,
-              help="SCOlist file name", metavar="character"),
+              help="file with individual alignement file names (or locations)", metavar="character"),
   make_option(c("-o", "--out"), type="character", default=NULL,
               help="output alignement prefix", metavar="character")
   );
@@ -16,9 +16,9 @@ option_list = list(
 opt_parser = OptionParser(option_list=option_list);
 opt = parse_args(opt_parser);
 
-if (is.null(opt$file)){
+if (is.null(opt$file) & is.null(opt$out)){
   print_help(opt_parser)
-  stop("One argument must be supplied (input file name).n", call.=FALSE)
+  stop("Two arguments must be supplied (input and output files names).n", call.=FALSE)
 }
 
 
@@ -27,7 +27,11 @@ if (is.null(opt$file)){
 listALN = read.table(opt$file, header=FALSE)
 bindAln = c()
 PartFile = c()
+init=0
+
+# Taking into account empty alignement (even as first entry)
 for(i in seq(1, length(listALN$V1))){
+	print(listALN$V1[i])
 	aln = listALN$V1[i]
 	new = read.dna(as.character(aln), format="fasta")
 
@@ -37,9 +41,10 @@ for(i in seq(1, length(listALN$V1))){
 		next
 	}
 	row.names(new) = gsub("_.*", "", labels(new))
-	if(i==1){ 
+	if(init==0 & dim(new)[2]!=0){ 
 		bindAln = new
 		PartFile = paste("DNA, gene",as.character(i),"=1-",as.character(dim(new)[2]), sep='') 
+		init=1
 	}
 	else{ 
 		lastPos = dim(bindAln)[2]
