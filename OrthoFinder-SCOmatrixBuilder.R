@@ -2,7 +2,7 @@
 library("optparse")
 library(reshape2)
 library(ggplot2)
-
+library(grid)
  
 option_list = list(
   make_option(c("-f", "--file"), type="character", default=NULL, 
@@ -92,7 +92,7 @@ ggplot(mm,aes(x=X,y=variable,fill=value)) +
    labs(x="gene occupancy", y="species") +
    scale_y_discrete(limits=mmNscoSp$Group.1[order(mmNscoSp$x, decreasing=F)]) +
    scale_fill_manual(values = c("0"="white", "1"="black")) +
-   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
 dev.off()
 
 ## Creation of the SCO matrix representation with color frames
@@ -104,7 +104,8 @@ testGG = ggplot(mm375,aes(x=X,y=variable,fill=value)) +
    labs(x="gene occupancy", y="species") +
    scale_y_discrete(limits=mm375NscoSp$Group.1[order(mm375NscoSp$x, decreasing=F)]) +
    scale_fill_manual(values = c("0"="white", "1"="black"),labels=c("Absent", "Present")) +
-   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+   theme(plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 axisPosY = -0.8
 testGG + geom_rect(aes(xmin=0.5, xmax=nlevels(mm75$X)+0.5, ymin=1-0.5, ymax=nlevels(mm75$variable)+0.5), alpha=0.002, fill ="purple") +
 geom_rect(aes(xmin=0.5, xmax=nlevels(mm5$X)+0.5, ymin=1-0.5, ymax=nlevels(mm5$variable)+0.5), alpha=0.002, fill ="blue") +
