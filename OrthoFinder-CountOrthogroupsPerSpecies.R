@@ -3,7 +3,7 @@ library("optparse")
 
 option_list = list(
   make_option(c("-f", "--file"), type="character", default=NULL, 
-              help="dataset file name", metavar="character"),
+              help="dataset file name (generally named Orthogroups.csv)", metavar="character"),
 	make_option(c("-o", "--out"), type="character", default=NULL, 
               help="output prefix file name", metavar="character")
 ); 
