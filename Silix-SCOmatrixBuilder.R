@@ -26,7 +26,7 @@ if (is.null(opt$file) & is.null(opt$out)){
 
 data=read.csv(opt$file, sep=" ", h=T)
 NumberOfSp = length(data[1,])
-names(data) = c("X", seq(0,NumberOfSp-2, by=1))
+# names(data) = c("X", seq(0,NumberOfSp-2, by=1))
 
 ##Extracting Orthogroups containing 1 or 0 genes per species :
 ##------------------------------------------------------------

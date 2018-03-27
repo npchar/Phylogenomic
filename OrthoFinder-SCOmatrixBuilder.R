@@ -27,8 +27,9 @@ data = read.csv(opt$file, sep="\t", h=T)
 ##------------------------------------------------------------
 SCO = data[apply(data[,2:length(data[1,])], 1, function(x) sum(x<2)==length(x)),]
 
-##Extracting SCO present at least in 75%, 50% and 37.5% in the dataset :
+##Extracting SCO present at least in 100%, 75%, 50% and 37.5% in the dataset :
 ##----------------------------------------------------------------------
+SCO100 = SCO[apply(SCO[,2:length(SCO[1,])], 1, function(x) sum(x)==length(x)),]
 SCO75 = SCO[apply(SCO[,2:length(SCO[1,])], 1, function(x) sum(x)> length(x)*0.75),]
 SCO50 = SCO[apply(SCO[,2:length(SCO[1,])], 1, function(x) sum(x)> length(x)*0.5),]
 SCO375 = SCO[apply(SCO[,2:length(SCO[1,])], 1, function(x) sum(x)> length(x)*0.375),]
@@ -59,7 +60,7 @@ mm375NscoSp = aggregate(as.numeric(as.character(mm375$value)), by=list(mm375$var
 
 ##writing result (list of Orthogoups IDs and graphical representation of the matrix) :
 ##------------------------------------------------------------------------------------
-write.table(SCO75$X, file=paste(opt$out,"SCO75.list", sep=''), quote=F, row.names=F, col.names=F)
+write.table(SCO100$X, file=paste(opt$out,"SCO100.list", sep=''), quote=F, row.names=F, col.names=F)
 write.table(SCO50$X, file=paste(opt$out,"SCO50.list", sep=''), quote=F, row.names=F, col.names=F)
 write.table(SCO375$X, file=paste(opt$out,"SCO375.list", sep=''), quote=F, row.names=F, col.names=F)
 pdf(file=paste(opt$out,"SCO375.pdf", sep=''))
